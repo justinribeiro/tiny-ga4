@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <title>TinyGA4 - Demo</title>
+    <style>
+      * {
+        box-sizing: content-box;
+      }
+      body {
+        max-width: 800px;
+        margin: auto;
+      }
+      pre {
+        width: 100%;
+        padding: 1em;
+        overflow-x: scroll;
+        background-clip: z;
+        background-color: #eee;
+      }
+      .styleIt {
+        width: 400px;
+      }
+      #bigBlock {
+        height: 600px;
+      }
+    </style>
+    <script type="module">
+      import analytics from '../tiny-ga4.js';
+      window.analytics = analytics('G-JDR');
+    </script>
+    <script>
+      function sendPageview() {
+        window.analytics.trackEvent('page_view', {});
+      }
+
+      function sendPageview_custom() {
+        window.analytics.trackEvent('page_view', {
+          page_location: 'https://justinribeiro.com/sample/page',
+        });
+      }
+
+      function sendPageview_2() {
+        window.analytics.trackEvent('page_view', {
+          is_session_start: true,
+          is_first_visit: true,
+        });
+      }
+
+      function sendPageview_3() {
+        window.analytics.trackEvent('page_view', {
+          is_session_start: true,
+          campaign_medium: 'cpc',
+          campaign_source: 'google',
+          campaign_name: 'gclid',
+        });
+      }
+      function sendEvent() {
+        window.analytics.trackEvent('click_outgoing', {
+          clicked_url: 'https://justinribeiro.com/going/somewhere',
+          time: 12323,
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Blip Blop Boop</h1>
+    <p>
+      This is the cut down, Justin-opinionated version of the
+      I-just-want-to-track-hits world. If you want flexibility, this is not the
+      library for you.
+    </p>
+
+    <h2>Sending a page_view</h2>
+    <div>
+      <pre>
+ga4track.trackEvent('page_view')
+</pre
+      >
+      <button onclick="sendPageview_2()">SEND PAGE_VIEW</button>
+    </div>
+
+    <h2>Send a pageview that trigger a new session and a first visit</h2>
+    <div>
+      <pre>
+ga4track.trackEvent('page_view', {
+    is_session_start: true,
+    is_first_visit: true,
+})
+</pre
+      >
+      <button onclick="sendPageview_3()">
+        SEND PAGE_VIEW ( FIRST VISIT, SESSION START )
+      </button>
+    </div>
+    <h2>
+      Send a pageview that trigger a new session and set the campaign
+      attribution
+    </h2>
+    <div>
+      <pre>
+ga4track.trackEvent('page_view', {
+    is_session_start: true,
+    campaign_medium: 'cpc',
+    campaign_source: 'google',
+    campaign_name: 'gclid'
+})
+</pre
+      >
+      <button onclick="sendPageview()">
+        SEND PAGE_VIEW ( SESSION START; ATTRIBUTION DATA
+      </button>
+    </div>
+
+    <h2>Virtual PageView</h2>
+    <p>Common in my PWA's</p>
+    <div>
+      <pre>
+ga4track.trackEvent('page_view', {
+  page_location: 'https://justinribeiro.com/sample/page'
+})
+</pre
+      >
+      <button onclick="sendPageview_custom()">SEND Virtual</button>
+    </div>
+
+    <h2>Sending an event</h2>
+
+    <div>
+      <pre>
+ga4track.trackEvent('click_outgoing', {
+  clicked_url: 'https://www.thyngster.com',
+  time: 12323
+})
+</pre
+      >
+      <button onclick="sendEvent()">SEND CUSTOM EVENT</button>
+    </div>
+  </body>
+</html>

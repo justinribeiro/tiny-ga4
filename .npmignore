@@ -59,11 +59,13 @@ package-lock.json
 yarn.lock
 index.html
 
-docs/
-index.html
+demo/
+src/
 
-demo
+rollup.config.js
+eslint.config.mjs
+prettier.config.mjs
+
 .github
 yarn.lock
 package-lock.json
-internal.html
