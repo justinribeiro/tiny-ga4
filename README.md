@@ -49,7 +49,7 @@ You can also use directly from the CDN (should you so please):
 
 ```html
 <script type="module">
-import analytics from 'https://cdn.jsdelivr.net/npm/@justinribeiro/tiny-ga4e@1/tiny-ga4.esm.min.js';
+import analytics from 'https://cdn.jsdelivr.net/npm/@justinribeiro/tiny-ga4@1/tiny-ga4.esm.min.js';
 window.analytics = analytics('G-YOUR_TRACKING_ID');
 window.analytics.trackEvent('page_view');
 </script>
