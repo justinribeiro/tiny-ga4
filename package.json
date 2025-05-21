@@ -1,6 +1,6 @@
 {
   "name": "@justinribeiro/tiny-ga4",
-  "version": "0.9.2",
+  "version": "1.0.0",
   "description": "An tiny, opinionated Open-Source Google Analytics 4 Client-Side Protocol Implementation for your website.",
   "type": "module",
   "author": "Justin Ribeiro <justin@justinribeiro.com>",
